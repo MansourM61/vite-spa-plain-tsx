@@ -8,15 +8,34 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "inspect": "npx serve .vite-inspect"
+        "inspect": "npx serve .vite-inspect",
+        "prepare": "husky",
+        "format": "bunx --bun @biomejs/biome format --write .",
+        "lint": "bunx --bun @biomejs/biome check --write"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.2.2",
         "@vitejs/devtools": "^0.1.11",
+        "biome": "^0.3.3",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "tailwindcss": "^4.2.2",
         "typescript": "~5.9.3",
         "unplugin-turbo-console": "^2.3.0",
         "vite": "^8.0.1",
         "vite-plugin-inspect": "^12.0.0-beta.1"
-    }
+    },
+    "lint-staged": {
+        "**/*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": "biome check --write --no-errors-on-unmatched",
+        "**/*.{json,jsonc}": "biome check --write --no-errors-on-unmatched",
+        "**/*.{css,html}": "biome check --write --no-errors-on-unmatched"
+    },
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MansourM61/vite-plain-tsx.git"
+    },
+    "packageManager": "bun@1.3.6"
 }
