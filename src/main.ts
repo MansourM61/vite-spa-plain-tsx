@@ -1,11 +1,11 @@
 import './assets/main.css'
-import "./assets/style.css"
+import './assets/style.css'
+import heroImg from './assets/hero.png'
 import typescriptLogo from './assets/typescript.svg'
 import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/`
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 <section id="center">
   <div class="hero">
     <img src="${heroImg}" class="base" width="170" height="179">

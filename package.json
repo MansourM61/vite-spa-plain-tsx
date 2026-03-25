@@ -14,9 +14,9 @@
         "lint": "bunx --bun @biomejs/biome check --write"
     },
     "devDependencies": {
+        "@biomejs/biome": "2.4.9",
         "@tailwindcss/vite": "^4.2.2",
         "@vitejs/devtools": "^0.1.11",
-        "biome": "^0.3.3",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "tailwindcss": "^4.2.2",
@@ -30,9 +30,7 @@
         "**/*.{json,jsonc}": "biome check --write --no-errors-on-unmatched",
         "**/*.{css,html}": "biome check --write --no-errors-on-unmatched"
     },
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MansourM61/vite-plain-tsx.git"

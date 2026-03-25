@@ -1,6 +1,6 @@
-import Inspect from 'vite-plugin-inspect'
-import TurboConsole from 'unplugin-turbo-console/vite'
 import tailwindcss from '@tailwindcss/vite'
+import TurboConsole from 'unplugin-turbo-console/vite'
+import Inspect from 'vite-plugin-inspect'
 
 export default {
     devtools: true,
@@ -13,8 +13,7 @@ export default {
             inspector: {
                 printUrl: false,
             },
-
         }),
-        tailwindcss()
+        tailwindcss(),
     ],
 }
