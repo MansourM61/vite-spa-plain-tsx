@@ -1,6 +1,4 @@
-import './assets/main.css'
-
-import { setupCounter } from './counter.ts'
+import { setupCounter } from '@/counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 <section class="flex flex-col grow gap-6.25 place-content-center place-items-center ">
@@ -8,5 +6,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
     <button class="bg-gray-700 py-1 px-2 rounded-lg border-2 border-blue-600 text-gray-300" id="counter" type="button" class="counter"></button>
 </section>
 `
-
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)

@@ -1,6 +1,0 @@
-@import "tailwindcss";
-
-/* main body background colour */
-body {
-    background-color: var(--color-neutral-900);
-}
