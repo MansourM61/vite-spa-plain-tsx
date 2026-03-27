@@ -13,3 +13,5 @@ Frontend vanilla TypeScript based on Vite with support of TSX
 7. Biome configuration is added (commit: `Biome configuration is added.`).
 8. Landing page with interactive UI is created (commit: `Landing page is created.`).
 9. Multi-page app is created (landing page and about page) (commit: `Multi-page entry is created.`).
+10. The app is turned back into SPA (commit: `App is turned into a SPA.`).
+11. .env files are added for the app configuration. (commit: `.env files are added.`).

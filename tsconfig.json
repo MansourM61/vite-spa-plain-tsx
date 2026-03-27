@@ -4,7 +4,7 @@
         "useDefineForClassFields": true,
         "module": "ESNext",
         "lib": ["ES2023", "DOM", "DOM.Iterable"],
-        "types": ["vite/client", "unplugin-turbo-console/client"],
+        "types": ["vite/client", "unplugin-turbo-console/client", "bun"],
         "skipLibCheck": true,
         /* Bundler mode */
         "moduleResolution": "bundler",
@@ -24,5 +24,6 @@
             "@/assets": ["./src/assets/§*"]
         }
     },
+    "files": ["vite.config.ts"],
     "include": ["src"]
 }
