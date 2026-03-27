@@ -5,6 +5,6 @@ export default defineConfig({
         tsconfigPaths: true,
     },
     test: {
-        include: ['**/test/**/*.test.?(c|m)[jt]s?(x)'],
+        include: ['./test/**/*.test.?(c|m)[jt]s?(x)'],
     },
 })
