@@ -1,0 +1,10 @@
+{
+    "rootDir": ".",
+    "publicDir": "public",
+    "envDir": ".",
+    "envPrefix": "VITE_",
+    "webHost": "localhost",
+    "webPort": "3000",
+    "apiHost": "localhost",
+    "apiPort": "3000"
+}

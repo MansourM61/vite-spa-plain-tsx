@@ -5,26 +5,33 @@ import * as _ from 'lodash-es'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig, loadEnv, type UserConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
+import defConfigs from './vite.default.json'
 
+// set up the configuration for Vite during development and build
 export default defineConfig(({ command, mode }) => {
-    const env = loadEnv(mode, process.cwd(), '')
-    const WEB_HOST = env.WEB_HOST ?? 'localhost'
-    const WEB_PORT = parseInt(env.WEB_PORT ?? '3000', 10)
-    const API_HOST = env.API_HOST ?? 'localhost'
-    const API_PORT = parseInt(env.API_PORT ?? '4000', 10)
-
     const projFolder = process.cwd()
+    const rootDir = join(projFolder, defConfigs.rootDir)
+    const publicDir = join(projFolder, defConfigs.publicDir)
+    const envDir = join(projFolder, defConfigs.envDir)
+
+    // load all environment variables from `.env` files because `import.meta.env` is not available here
+    const env = loadEnv(mode, envDir, defConfigs.envPrefix)
+    const WEB_HOST = env.WEB_HOST ?? defConfigs.webHost
+    const WEB_PORT = parseInt(env.WEB_PORT ?? defConfigs.webPort, 10)
+    const API_HOST = env.API_HOST ?? defConfigs.apiHost
+    const API_PORT = parseInt(env.API_PORT ?? defConfigs.apiPort, 10)
 
     // common configuration shared all environment
     const sharedConfig = {
-        base: '/',
-        root: join(projFolder, '.'),
-        publicDir: join(projFolder, 'public'),
-        envDir: join(projFolder, '.'),
+        base: '/', // change it to "/xxx" an then the landing page will be "http://localhost:port/xxx"
+        root: rootDir, // directory where "index.html" is placed.
+        publicDir: publicDir, // public assets directory
+        envDir: envDir, // .env files and all imported environment variables directory
         devtools: true,
         plugins: [
-            Inspect(),
+            Inspect(), // for inspecting what happens inside Vite
             TurboConsole({
+                // a fancy console at client/server
                 highlight: {
                     themeDetect: true,
                 },
@@ -36,6 +43,7 @@ export default defineConfig(({ command, mode }) => {
         ],
         resolve: {
             alias: {
+                // resolve the following directories for `import` and `require` statements in the code
                 '@': fileURLToPath(new URL('./src', import.meta.url)),
                 '@assets': fileURLToPath(
                     new URL('./src/assets', import.meta.url)
@@ -44,7 +52,7 @@ export default defineConfig(({ command, mode }) => {
         },
         appType: 'spa', // all requests to all routes will be directed to "index.html".
         build: {
-            outDir: 'dist',
+            outDir: 'dist', // build directory
         },
         preview: {
             allowedHosts: true, // to allow all incoming request from all addresses
@@ -53,8 +61,13 @@ export default defineConfig(({ command, mode }) => {
             host: WEB_HOST,
             port: WEB_PORT,
             proxy: {
+                // define a proxy to avoid CORS for the trusted API
                 '/api': `http://${API_HOST}:${API_PORT}`,
             },
+            fs: {
+                strict: true, // restrict serving files outside of workspace root.
+            },
+            middlewareMode: false, // use Vite as a built tool rather than middleware
         },
     } satisfies UserConfig
 
@@ -64,6 +77,7 @@ export default defineConfig(({ command, mode }) => {
         // dev specific config
         envConfig = {
             server: {
+                // avoid CORS during development
                 cors: true, // enable CORS for all incoming IP addresses
             },
         } satisfies UserConfig
@@ -72,6 +86,7 @@ export default defineConfig(({ command, mode }) => {
         envConfig = {
             server: {
                 cors: {
+                    // apply cors for specific IP addresses
                     origin: /^https?:\/\/(?:10\.10\.100\.\d{1,3}|localhost|127\.0\.0\.1|\[::1\])(?::\d+)?/, // To be replaced with patterns of all IP addresses/domains that need CORS
                 },
             },
