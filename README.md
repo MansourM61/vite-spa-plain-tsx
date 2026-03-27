@@ -16,3 +16,4 @@ Frontend vanilla TypeScript based on Vite with support of TSX
 10. The app is turned back into SPA (commit: `App is turned into a SPA.`).
 11. .env files are added for the app configuration. (commit: `.env files are added.`).
 12. Vite configuration is documented and enhanced with more customisation (commit: `Vite configuration is tidied up.`).
+13. Support for JSX syntax is added (commit: `JSX feature is added.`).

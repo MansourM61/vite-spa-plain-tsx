@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "dist",
         "target": "ES2023",
         "useDefineForClassFields": true,
         "module": "ESNext",
@@ -21,8 +22,12 @@
         "noUncheckedSideEffectImports": true,
         "paths": {
             "@/*": ["./src/*"],
-            "@/assets": ["./src/assets/§*"]
-        }
+            "@assets/*": ["./src/assets/*"],
+            "@lib/*": ["./src/lib/*"]
+        },
+        /* JSX/TSX support */
+        "jsx": "preserve", // keep the JSX syntax so that `jsx-dom` can convert it.
+        "jsxImportSource": "jsx-dom" // imports the types, functions, etc
     },
     "files": ["vite.config.ts"],
     "include": ["src"]

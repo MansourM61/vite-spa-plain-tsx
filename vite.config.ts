@@ -48,6 +48,7 @@ export default defineConfig(({ command, mode }) => {
                 '@assets': fileURLToPath(
                     new URL('./src/assets', import.meta.url)
                 ),
+                '@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
             },
         },
         appType: 'spa', // all requests to all routes will be directed to "index.html".
@@ -68,6 +69,23 @@ export default defineConfig(({ command, mode }) => {
                 strict: true, // restrict serving files outside of workspace root.
             },
             middlewareMode: false, // use Vite as a built tool rather than middleware
+        },
+        oxc: {
+            jsx: {
+                // use Vite to transform any JSX syntax
+                runtime: 'automatic', // automatically add import JSX package for JSX/TSX files
+                development: true, // enable development specific transforms ??
+                throwIfNamespace: true, // throw error if the XML namespaced tag names (e.g. <foo:bar baz:qux="foobar" />) are used.
+                pure: false, // enable pure annotation (annotation comments that can be safely removed) for JSX elements
+                importSource: 'jsx-dom', // the package to be automatically imported for JSX/TSX file
+                pragma: 'React.createElement', // h factory function
+                pragmaFrag: 'React.Fragment', // fragment element
+            },
+            // When transforming TSX files:
+            typescript: {
+                jsxPragma: 'React.createElement', // same value with `jsx.pragma`
+                jsxPragmaFrag: 'React.Fragment', // same value with `jsx.pragmaFrag`
+            },
         },
     } satisfies UserConfig
 

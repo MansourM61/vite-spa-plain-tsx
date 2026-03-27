@@ -1,4 +1,5 @@
 import { setupCounter } from '@/counter.ts'
+import Comp from './Comp'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 <section class="flex flex-col grow gap-6.25 place-content-center place-items-center ">
@@ -7,3 +8,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 </section>
 `
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+document.querySelector<HTMLDivElement>('#jsx')!.appendChild(Comp)
