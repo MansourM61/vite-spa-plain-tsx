@@ -10,6 +10,24 @@
     <body>
         <div id="app"></div>
         <div id="jsx"></div>
+        <div class="flex justify-center mt-5">
+            <div
+                class="flex flex-col mt-5 gap-3 items-center border-2 border-amber-400 rounded-xl p-5"
+            >
+                <button
+                    type="button"
+                    class="w-fit bg-pink-400 rounded-lg p-2"
+                    id="fetch-data"
+                >
+                    Fetch data
+                </button>
+
+                <fieldset>
+                    <legend class="text-gray-400">Data</legend>
+                    <ul id="list-data"></ul>
+                </fieldset>
+            </div>
+        </div>
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>
