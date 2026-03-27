@@ -1,6 +1,6 @@
-import { setupCounter } from '@/counter.ts'
-import Comp from './Comp'
-import { fetchData } from './fetchData'
+import { setData } from '@lib/fetchData'
+import Comp from '@src/Comp'
+import { setupCounter } from '@src/counter'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `
 <section class="flex flex-col grow gap-6.25 place-content-center place-items-center ">
@@ -12,4 +12,4 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 document.querySelector<HTMLDivElement>('#jsx')!.appendChild(Comp)
 
-document.addEventListener('click', () => fetchData())
+document.addEventListener('click', () => setData())

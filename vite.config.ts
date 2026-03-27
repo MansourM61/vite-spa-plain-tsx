@@ -44,7 +44,8 @@ export default defineConfig(({ command, mode }) => {
         resolve: {
             alias: {
                 // resolve the following directories for `import` and `require` statements in the code
-                '@': fileURLToPath(new URL('./src', import.meta.url)),
+                '@': fileURLToPath(new URL('.', import.meta.url)),
+                '@src': fileURLToPath(new URL('./src', import.meta.url)),
                 '@assets': fileURLToPath(
                     new URL('./src/assets', import.meta.url)
                 ),

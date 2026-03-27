@@ -21,14 +21,14 @@
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
         "paths": {
-            "@/*": ["./src/*"],
-            "@assets/*": ["./src/assets/*"],
+            "@/*": ["./*"],
+            "@src/*": ["./src/*"],
             "@lib/*": ["./src/lib/*"]
         },
         /* JSX/TSX support */
         "jsx": "preserve", // keep the JSX syntax so that `jsx-dom` can convert it.
         "jsxImportSource": "jsx-dom" // imports the types, functions, etc
     },
-    "files": ["vite.config.ts"],
-    "include": ["src"]
+    "files": ["vite.config.ts", "./src/main.ts"],
+    "include": ["**/*.ts", "**/*.tsx"]
 }
