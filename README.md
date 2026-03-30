@@ -22,3 +22,4 @@ Frontend vanilla TypeScript based on Vite with support of TSX
 16. Playwright support is added (commit: `Playwright support is added.`).
 17. Test bugs are fixed (commit: `Test bugs are fixed.`).
 18. Documentation based on TypeDoc is added (commit: `TypeDoc documentation is added.`).
+19. The deleted text files are revived. (commit: `The missing test files are restored.`).

@@ -41,7 +41,11 @@ export default defineConfig(({ command, mode }) => {
             tailwindcss(),
         ],
         resolve: {
-            tsconfigPaths: true, // resolve imports using TypeScript's path definition (replaces resolve.alias)
+            tsconfigPaths: true, // resolve imports using TypeScript's path definition (replaces resolve.alias). If you want to directly run `vite build` in the commandline, you must manually resolve the path aliases here:
+            // alias: {
+            //      "@": path.resolve(__dirname, "./src"),
+            //      ...
+            // }
         },
         appType: 'spa', // all requests to all routes will be directed to "index.html".
         build: {

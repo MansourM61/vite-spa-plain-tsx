@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "vite",
         "dev+mock": "concurrently --kill-others --handle-input --names web,api 'bun:dev' 'bun:mock:port'",
-        "build": "bun run clean && tsc && vite build",
+        "build": "bun run clean && tsc --noEmit && vite build",
         "preview": "vite preview",
         "test": "vitest",
         "test:ui": "vitest --ui",
