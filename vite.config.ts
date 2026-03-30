@@ -9,9 +9,9 @@ import defConfigs from './vite.default.json'
 // set up the configuration for Vite during development and build
 export default defineConfig(({ command, mode }) => {
     const projFolder = process.cwd()
-    const rootDir = join(projFolder, defConfigs.rootDir)
+    const rootDir = join(projFolder, '.')
     const publicDir = join(projFolder, defConfigs.publicDir)
-    const envDir = join(projFolder, defConfigs.envDir)
+    const envDir = join(projFolder, '.')
 
     // load all environment variables from `.env` files because `import.meta.env` is not available here
     const env = loadEnv(mode, envDir, defConfigs.envPrefix)

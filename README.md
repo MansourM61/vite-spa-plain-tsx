@@ -23,3 +23,11 @@ Frontend vanilla TypeScript based on Vite with support of TSX
 17. Test bugs are fixed (commit: `Test bugs are fixed.`).
 18. Documentation based on TypeDoc is added (commit: `TypeDoc documentation is added.`).
 19. The deleted text files are revived. (commit: `The missing test files are restored.`).
+20. The root and env directories are hardcoded and `README.md` file documentation is updated (commit: `README.md is updated.`).
+
+## Instruction
+
+1. All library files are placed in `src/lib`, and can be imported using `@lib/` prefix.
+2. JSX components are located in `src/components`, and accessed by `@components/` prefix in the main script.
+3. Tailwind CSS, TypeDoc, and Playwright are available (see **package.json** for the available scripts).
+4. The package `concurrently` is not terminating all processes in Windows OS. So the **Node.js** runtime must be terminated manually after running `dev+mock` script.

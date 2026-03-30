@@ -1,7 +1,5 @@
 {
-    "rootDir": ".",
     "publicDir": "public",
-    "envDir": ".",
     "envPrefix": "VITE_",
     "webHost": "localhost",
     "webPort": "3000",
