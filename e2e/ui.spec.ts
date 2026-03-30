@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 // bun run mock
 // bun run dev
 test('test', async ({ page }) => {
-    await page.goto('http://localhost:3001/')
+    await page.goto('/')
     await expect(
         page.getByRole('heading', { name: 'Vite Build Tool' })
     ).toBeVisible()

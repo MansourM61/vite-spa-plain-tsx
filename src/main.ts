@@ -12,4 +12,6 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 document.querySelector<HTMLDivElement>('#jsx')!.appendChild(Comp)
 
-document.addEventListener('click', () => setData())
+document
+    .querySelector<HTMLDivElement>('#fetch-data')!
+    .addEventListener('click', () => setData())

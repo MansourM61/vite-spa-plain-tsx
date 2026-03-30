@@ -6,6 +6,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
+        "dev:mock": "concurrently --kill-others --handle-input --names web,api 'bun:dev' 'bun:mock:port'",
         "build": "bun run clean && tsc && vite build",
         "preview": "vite preview",
         "test": "vitest",
@@ -17,7 +18,8 @@
         "format": "bunx --bun @biomejs/biome format --write .",
         "lint": "bunx --bun @biomejs/biome check --write",
         "clean": "rimraf ./dist",
-        "mock": "bunx json-server test/mocks/data.json"
+        "mock": "bunx json-server test/mocks/data.json",
+        "mock:port": "bun test/start-mock-server.ts"
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.9",
@@ -27,6 +29,7 @@
         "@types/bun": "^1.3.11",
         "@vitejs/devtools": "^0.1.11",
         "@vitest/ui": "^4.1.2",
+        "concurrently": "^9.2.1",
         "global-jsdom": "^29.0.0",
         "husky": "^9.1.7",
         "jsdom": "^29.0.1",
@@ -36,9 +39,10 @@
         "msw": "^2.12.14",
         "rimraf": "^6.1.3",
         "tailwindcss": "^4.2.2",
-        "typescript": "~5.9.3",
+        "tinyexec": "^1.0.4",
+        "typescript": "~6.0.2",
         "unplugin-turbo-console": "^2.3.0",
-        "vite": "^8.0.1",
+        "vite": "^8.0.3",
         "vite-plugin-inspect": "^12.0.0-beta.1",
         "vitest": "^4.1.2"
     },

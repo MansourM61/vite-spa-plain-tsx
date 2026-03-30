@@ -1,3 +1,5 @@
+import defConfigs from '@/vite.default.json'
+
 // Source - https://stackoverflow.com/a/1484514
 // Posted by Anatoliy, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-03-27, License - CC BY-SA 3.0
@@ -10,9 +12,19 @@ function getRandomColor() {
     return color
 }
 
+const API_HOST = import.meta.env['VITE_API_HOST'] ?? defConfigs.apiHost
+const API_PORT = parseInt(
+    import.meta.env['VITE_API_PORT'] ?? defConfigs.apiPort,
+    10
+)
+
 export const fetchData = async () => {
-    const par_1 = await (await fetch('http://localhost:3000/par_1')).text()
-    const par_2 = await (await fetch('http://localhost:3000/par_2')).text()
+    const par_1 = await (
+        await fetch(`http://${API_HOST}:${API_PORT}/par_1`)
+    ).text()
+    const par_2 = await (
+        await fetch(`http://${API_HOST}:${API_PORT}/par_2`)
+    ).text()
 
     return [par_1, par_2]
 }

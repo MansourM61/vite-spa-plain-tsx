@@ -1,5 +1,4 @@
 import { join } from 'node:path'
-import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import * as _ from 'lodash-es'
 import TurboConsole from 'unplugin-turbo-console/vite'
@@ -16,10 +15,10 @@ export default defineConfig(({ command, mode }) => {
 
     // load all environment variables from `.env` files because `import.meta.env` is not available here
     const env = loadEnv(mode, envDir, defConfigs.envPrefix)
-    const WEB_HOST = env.WEB_HOST ?? defConfigs.webHost
-    const WEB_PORT = parseInt(env.WEB_PORT ?? defConfigs.webPort, 10)
-    const API_HOST = env.API_HOST ?? defConfigs.apiHost
-    const API_PORT = parseInt(env.API_PORT ?? defConfigs.apiPort, 10)
+    const WEB_HOST = env['VITE_WEB_HOST'] ?? defConfigs.webHost
+    const WEB_PORT = parseInt(env['VITE_WEB_PORT'] ?? defConfigs.webPort, 10)
+    const API_HOST = env['VITE_API_HOST'] ?? defConfigs.apiHost
+    const API_PORT = parseInt(env['VITE_API_PORT'] ?? defConfigs.apiPort, 10)
 
     // common configuration shared all environment
     const sharedConfig = {
@@ -42,15 +41,7 @@ export default defineConfig(({ command, mode }) => {
             tailwindcss(),
         ],
         resolve: {
-            alias: {
-                // resolve the following directories for `import` and `require` statements in the code
-                '@': fileURLToPath(new URL('.', import.meta.url)),
-                '@src': fileURLToPath(new URL('./src', import.meta.url)),
-                '@assets': fileURLToPath(
-                    new URL('./src/assets', import.meta.url)
-                ),
-                '@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
-            },
+            tsconfigPaths: true, // resolve imports using TypeScript's path definition (replaces resolve.alias)
         },
         appType: 'spa', // all requests to all routes will be directed to "index.html".
         build: {

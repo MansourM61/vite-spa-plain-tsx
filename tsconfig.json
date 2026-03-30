@@ -17,9 +17,19 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "erasableSyntaxOnly": true,
-        "noFallthroughCasesInSwitch": true,
+        "allowUnusedLabels": false,
         "noUncheckedSideEffectImports": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUnreachableCode": false,
+        "noUncheckedIndexedAccess": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "erasableSyntaxOnly": true, // avoids using types such as `enum` that cannot be safely removed from the code without breaking it
+        "noImplicitOverride": true,
+        "noErrorTruncation": false,
+        "exactOptionalPropertyTypes": false,
+        "allowJs": true,
+        "checkJs": false, // for each file to be checked, add `// @ts-check` as the first line
+        /* Path aliases */
         "paths": {
             "@/*": ["./*"],
             "@src/*": ["./src/*"],

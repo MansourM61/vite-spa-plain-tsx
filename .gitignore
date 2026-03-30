@@ -26,7 +26,7 @@ dist-ssr
 
 # test
 .vite-inspect
-test
+
 
 # build
 dist

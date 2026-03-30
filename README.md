@@ -20,3 +20,4 @@ Frontend vanilla TypeScript based on Vite with support of TSX
 14. Data fetching and interaction with API's endpoint is added (commit: `Interaction with API is added.`).
 15. Vitest support is added (commit: `Vitest support is added.`).
 16. Playwright support is added (commit: `Playwright support is added.`).
+17. Test bugs are fixed (commit: `Test bugs are fixed.`).
