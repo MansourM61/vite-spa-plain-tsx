@@ -33,7 +33,8 @@
         "paths": {
             "@/*": ["./*"],
             "@src/*": ["./src/*"],
-            "@lib/*": ["./src/lib/*"]
+            "@lib/*": ["./src/lib/*"],
+            "@components/*": ["./src/components/*"]
         },
         /* JSX/TSX support */
         "jsx": "preserve", // keep the JSX syntax so that `jsx-dom` can convert it.

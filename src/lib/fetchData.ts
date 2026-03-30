@@ -1,9 +1,17 @@
+/**
+ * Data fetching from API
+ *
+ * @module lib/fetchData
+ */
 import defConfigs from '@/vite.default.json'
 
-// Source - https://stackoverflow.com/a/1484514
-// Posted by Anatoliy, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-03-27, License - CC BY-SA 3.0
-function getRandomColor() {
+/**
+ * Generate a random colour
+ *
+ * The code is from {@link https://stackoverflow.com/a/1484514}
+ * @returns {string} randomly generated colour
+ */
+function getRandomColor(): string {
     var letters = '0123456789ABCDEF'
     var color = '#'
     for (let i = 0; i < 6; i++) {
@@ -18,7 +26,12 @@ const API_PORT = parseInt(
     10
 )
 
-export const fetchData = async () => {
+/**
+ * Fetches data from a mock API server
+ *
+ * @returns {Promise<string[]>} fetched data
+ */
+export const fetchData = async (): Promise<string[]> => {
     const par_1 = await (
         await fetch(`http://${API_HOST}:${API_PORT}/par_1`)
     ).text()
@@ -29,6 +42,9 @@ export const fetchData = async () => {
     return [par_1, par_2]
 }
 
+/**
+ * Fetch the date from mock API server and append it to the list
+ */
 export async function setData() {
     const data = await fetchData()
 

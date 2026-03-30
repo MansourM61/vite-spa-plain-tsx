@@ -1,7 +1,15 @@
+/**
+ * Utility functions
+ *
+ * @module lib/utils
+ */
 import { networkInterfaces } from 'node:os'
 
-// find out the local IP address of the machine that the app is running on
-function getLocalIp() {
+/**
+ * Find out the local IP address of the machine that the app is running on
+ * @returns {string} local IP address
+ */
+function getLocalIp(): string {
     const nets = networkInterfaces()
     for (const name of Object.keys(nets)) {
         if (typeof nets[name] !== 'undefined') {

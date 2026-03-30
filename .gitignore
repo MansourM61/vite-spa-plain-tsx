@@ -27,7 +27,6 @@ dist-ssr
 # test
 .vite-inspect
 
-
 # build
 dist
 
@@ -37,3 +36,6 @@ dist
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# doc
+out

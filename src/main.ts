@@ -1,5 +1,5 @@
+import Comp from '@components/Comp'
 import { setData } from '@lib/fetchData'
-import Comp from '@src/Comp'
 import { setupCounter } from '@src/counter'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = /*html*/ `

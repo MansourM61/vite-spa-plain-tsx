@@ -80,7 +80,7 @@ export default defineConfig({
 
     /* Run your local dev server before starting the tests */
     webServer: {
-        command: 'bun run dev:mock',
+        command: 'bun run dev+mock',
         url: webAddress,
         reuseExistingServer: !process.env['CI'],
     },

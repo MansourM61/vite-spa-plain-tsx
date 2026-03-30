@@ -1,3 +1,7 @@
+/**
+ * Script to execute the `json-server` with given port
+ * It is provoked using `bun run mock:port` abd used for test purposes.
+ */
 import { x } from 'tinyexec'
 import { loadEnv } from 'vite'
 import defConfigs from '@/vite.default.json' with { type: 'json' }
